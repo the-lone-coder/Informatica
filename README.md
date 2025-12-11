@@ -189,8 +189,71 @@ Pentru a converti un nr. zecimal in alte baze, convertim partea intreaga la baza
 Base4 = 2313033.122033
 Base8 = 36336.3217
 
+# Reprezentarea numerelor cu virgula mobila
+Sunt 2 modalitati de reprezentare a numerelor reale cu virg. mobila
+1. Reprezentarea exponent-mantisa
+2. Reprezentarea caracteristica-mantisa
+
+Cu virgula mobila se reprezinta nr. mai mari ca 1 sau numerele foarte mici
+
+Reprezentarea \
+[SM][SE][Ex.2 (in baza 2)][Mantisa] \
+Ex: 23 \
+[0][0][0101][10111] \
+Ex: -23 \ 
+[1][0][0101][1011] Cod Direct \
+[1][0][0101][0100] Cod Invers \
+[1][0][0101][0101] Cod Complementar 
 
 
+Ex. \ 
+-321,6337890625 \
+101000001,1010001001 \
+0.1010000011010001001 \
+[1][0][1001][1010000011010001001] C.D \
+[1][0][1001][0101111100101110110] C.I \
+[1][0][1001][0101111100101110111] C.C 
+
+Ex. \
+(4,9375) -> (100.1111) -> 0.100111 * 2^3
+
+[][][][]
+
+## Operatii cu virgula mobila
+### Adunarea si scaderea
+1. Se compara cei doi exponenti pentru a il determina pe cel mai mare
+2. Se aliniaza mantisa numarului cu exponent mai mic prin deplasarea virgulei cu un numar de pozitii ce corespunde diferentei exponentilor
+3. Se aduna (sau scad) mantisele alineate atribuind rezultatului exponentul comun
+4. Eventual se normalizeaza mantis rezultatului cu modificarea exponentului
+
+Ex. 
+15+1.75 \
+1111+1,11 \
+1111 -> 0.1111 * 2^4 \
+1.11 -> 0.111 * 2^1 
+
+Ex. 
+13 - 0.25
+1101 - 0.01
 
 
+### Inmultirea si impartirea
+Inmultirea/impartirea consta in: 
+1. Inmultirea/impartirea mantiselor
+2. Adunarea/Scaderea exponentilor
+3. Normalizarea numarului
 
+## Reprezentarea zecimala codificata binar
+Cel mai utilizat este codul zecimal codificat binar (Poate fi intalnit ca B.C.D [Binary Coded Decimal]) \
+Cifrele de la 0 la 9 sunt reprezentate prin valori binare echivalente pe cate 4 pos. binare \
+Reprezentarea numerelor zecimale se realizeaza in 8 grupe de cifre binare in 2 forme 
+1. Impachetat (condensata) in care pe 8 pos. binare se pot reprezenta cate 2 cifre zecimale codificate binar
+2. Forma despachetata in care pe 8 pos. binare se reprezinta 1 singura cifra codificata binar predcedata de 4 cifre binare numite marca (se noteaza cu M mare) 
+
+Ex:   
+9347 -> 9 = [1][0][0][1] 3 = [0][0][1][1] 4 = [0][1][0][0] 7 = [0][1][1][1] --> F.Impachet = [1001 0011][ 0100 0111] --> F = despachet [1001][0011][0100][0111]
+
+ ## Adunarea in zecimal codificat binar
+1. Exprimarea fiecarii cifre zecimale printr-o tetrada binara
+2. Adunarea adunarii pozitie cu pozitie de la dreapta la stanga 
+3. Daca rezultatul adunarii a 2 cifre se obtine un numar binar care nu reprezinta o cifra zecimala sau apare trasport, la rezultatul obtinut se adauga numarul 6 [0][1][1][0]
