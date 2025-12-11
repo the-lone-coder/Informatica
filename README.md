@@ -257,3 +257,12 @@ Ex:
 1. Exprimarea fiecarii cifre zecimale printr-o tetrada binara
 2. Adunarea adunarii pozitie cu pozitie de la dreapta la stanga 
 3. Daca rezultatul adunarii a 2 cifre se obtine un numar binar care nu reprezinta o cifra zecimala sau apare trasport, la rezultatul obtinut se adauga numarul 6 [0][1][1][0]
+
+## Teza
+1. Teorie (Tablouri, sist de enumeratie, operatori logici)
+2. Calcule la cantitatea de info
+3. Conversii numerice 
+4. Operatii numerice
+5. Reprezentare (nr. real) in virgula fixa/mobila CD,CI,CC
+6. Elaborare in C++ algo. de transformare a numarului din baza in baza
+7. Scaderea/adunarea in calc. 
